@@ -4,7 +4,7 @@
 var itemCounter = 0;
 var fps = 15;
 
-var money = 7.50;
+var money = 1.000.000;
 var username = localStorage.getItem('username');
 if (localStorage.getItem("username") === null) {
 	localStorage.setItem('username' , "Player 1 (You)")
@@ -15,7 +15,7 @@ if (localStorage.getItem("imgData") === null) {
 }
 
 var currentCase = "case1";
-var acceptMoneyPerClick = 0.1;
+var acceptMoneyPerClick = 50;
 
 /*=========================Inventory============================*/
 //In inventory: weap skins
@@ -34,10 +34,10 @@ var acceptedsound = true;
 var inventory = {};
 var jackpotInventory = {};
 
-var inventoryMax = 50;
+var inventoryMax = 100;
 var inventoryCurrent = 0;
 
-var keyPrice = 2.50;
+var keyPrice = 0;
 
 var caseDiscount = 0;
 var keyDiscount = 0;
@@ -50,7 +50,7 @@ var operationCases = {
 	},
 	case2: {
 		name: "eSports 2013 Case",
-		price: 9.57,
+		price: 0.1,
 		img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsVk5kKhZDpYX3e1YznfCcdzkR74vnw9TZwa-sYOOCzzoF6ZJ0jL6Qp9uj3Qbj_Uc6Z2z1I9WLMlhp9VPHu3g"
 	},
 	case3: {
@@ -7285,7 +7285,7 @@ var cases = {
 			weap1: {
 				name: "M4A4 | Faded Zebra BS",
 
-				price: 0.85,
+				price: 340.56,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhzw8zSdD9Q7d-3mb-JgMj8NrrHj1Rd6dd2j6eR94n30AHh-0dlam_7LY-dJAU9YFrZ8lC_k-7rhZG96c_JzHFlsil0-z-DyGlAJkHo"
 
 			},
