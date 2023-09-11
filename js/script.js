@@ -3,7 +3,6 @@
 (function(){
 var itemCounter = 0;
 var fps = 15;
-
 var money = 1.000.000;
 var username = localStorage.getItem('username');
 if (localStorage.getItem("username") === null) {
@@ -13,15 +12,11 @@ var useravatar = localStorage.getItem('imgData');
 if (localStorage.getItem("imgData") === null) {
 	localStorage.setItem("imgData" , "https://i.imgur.com/ICK2lr1.jpg")
 }
-
 var currentCase = "case1";
 var acceptMoneyPerClick = 50;
-
 /*=========================Inventory============================*/
 //In inventory: weap skins
 //Hidden: money
-
-
 //sorting: by money, rarity
 var popup = true;
 var unboxsound = true;
@@ -30,18 +25,13 @@ var lostsound = true;
 var botsound = true;
 var wonsound = true;
 var acceptedsound = true;
-
 var inventory = {};
 var jackpotInventory = {};
-
 var inventoryMax = 100;
 var inventoryCurrent = 0;
-
 var keyPrice = 0;
-
 var caseDiscount = 0;
 var keyDiscount = 0;
-
 var operationCases = {
 	case1: {
 		name: "Weapon Case 1",
@@ -159,7 +149,6 @@ var operationCases = {
 		img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFY3navMJWgQtNm1ldLZzvOiZr-BlToIsZcoi-yTpdutiVW2-Es4NWjwIo-LMlhpinMS53M"
 	}
 }
-
 var knives = {
 	regular: {
 		knife1: {
@@ -7014,9 +7003,7 @@ var knives = {
 			img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpotLu8JAllx8zLZAJA7cW5moWfqPv7Ib7ummJW4NFOhujT8om72wPmqEQ5YzygIoORJAVsNF2E_1Lryem818Tt756Ym3NlunMqtnjbygv3309GNM5LHA"
 		}
 	}
-};
-
-
+}
 // cases
 var cases = {
 	//Weapon Case 1
@@ -7508,21 +7495,18 @@ var cases = {
 
 				price: 4.04,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhzw8zSdD9Q7d-3mb-JgMj8NrrHj1Rd6dd2j6eR94n30AHh-0dlam_7LY-dJAU9YFrZ8lC_k-7rhZG96c_JzHFlsil0-z-DyGlAJkHo"
-
 			},
 			weap2: {
 				name: "StatTrak™ M4A4 | Faded Zebra WW",
 
 				price: 4.10,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhzw8zSdD9Q7d-3mb-JgMj5Nr_Yg2Zu5MRjjeyPodugjQG3_ktlYmDzI9eXJw5vN1DX_FS3krjogpO_787PnCRg7HEn4WGdwUKP7q6emg"
-
 			},
 			weap3: {
 				name: "StatTrak™ M4A4 | Faded Zebra FT",
 
 				price: 3.89,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhzw8zSdD9Q7d-3mb-JgMj5Nr_Yg2Zu5MRjjeyPodugjQG3_ktlYmDzI9eXJw5vN1DX_FS3krjogpO_787PnCRg7HEn4WGdwUKP7q6emg"
-
 			},
 			weap4: {
 				name: "StatTrak™ M4A4 | Faded Zebra MW",
@@ -7536,25 +7520,19 @@ var cases = {
 
 				price: 35.93,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhzw8zSdD9Q7d-3mb-JgMj4OrzZglRd6dd2j6fF8NytjVLmqkU4ZGzxINOTegQ_YFCDrwe7le_thJS475jIzHQ37HEq-z-DyP3u9qQH"
-
 			},
 			weap6: {
 				name: "StatTrak™ FAMAS | Doomkitty FT",
-
 				price: 1.40,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposLuoKhRf2-r3dTJN4de_gJSSqPrxN7LEm1Rd6dd2j6eUot-miQbh-kI_MTinIYCTclNsNF2F-lG5w-e51MO9uJ3KnXNqsicq-z-DyBWRNjyQ"
-
 			},
 			weap7: {
 				name: "StatTrak™ FAMAS | Doomkitty MW",
-
 				price: 1.43,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposLuoKhRf2-r3dTJN4de_gJSSqPv9NLPFqWdQ-sJ0xOqY8YiiigyyqUI9Z22nIYCccwA2ZQmBr1W-x7rsg5a4v57MzHJnvCg8pSGK9dYuT9g"
-
 			},
 			weap8: {
 				name: "StatTrak™ MAG-7 | Memento FT",
-
 				price: 1.56,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou7uifDhoyszBcjJR7dSzkJKEmcj5Nr_Yg2Zu5MRjjeyP9oij0AO1_BZoYGynIIeQIQ9tYlzR_QK5x7_t05G7vpyYzSNmuCUg7WGdwUI8FRM0jQ"
 			},
@@ -18855,7 +18833,7 @@ var cases = {
 		milspec: {
 			weap1: {
 				name: "SG 553 | Atlas BS",
-				price: 0.16,
+				price: 200,
 				img: "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpopb3wflFf0Ob3YjoXuY-JlZSHluTLO77QgHIfvMFyi7jE8dvx21ay-EVkYm7zdYeVdldrM1vWqwO-wea608XvucnNwWwj5Hcz0tFOSQ"
 			},
 			weap2: {
@@ -22776,8 +22754,6 @@ var cases = {
 			}
 	}
 };
-
-
 /*===============STATISTICS===============*/
 var totalMoneySpent = 0;
 var totalCasesOpened = 0;
@@ -22786,21 +22762,15 @@ var totalPurplesOpened = 0;
 var totalPinksOpened = 0;
 var totalRedsOpened = 0;
 var totalKnivesOpened = 0;
-
-
 /*===============LOGIC===============*/
-
 function beatboy() {
 	money += 5000;
 	inventoryMax += 200
 	stackingUpgradesPurchased['upgrade1'] += 200;
 };
-
 //cases -> case# -> rarity  -> weaponname, price, img
 //cases -> case1 -> milspec -> weap1.name
-
 //blues = 70%, purple = 20%, pink = 5%, red = 2.50%, knife = 0.50%
-
 var rarityValue = {
 	milspec: 0.75,
 	restricted: 0.92,
@@ -22808,14 +22778,12 @@ var rarityValue = {
 	stattrak: 0.98,
 	covert: 0.995
 };
-
 function randSkin() {
 	var skinsArray = [];
 	var randSkin = "";
 	var randNum = Math.random().toFixed(3); //rounded to 3 places to make it slightly easier to get certain rarities
 	var rarity = "";
 	var identifier;
-
 	if (randNum <= rarityValue.milspec) {
 		rarity = "milspec";
 	} else if (randNum >= rarityValue.milspec && randNum <= rarityValue.restricted) {
@@ -22829,7 +22797,6 @@ function randSkin() {
 	} else {
 		rarity = "knife";
 	}
-
 	function skinChoose(r) {
 		if (r === "knife") {
 			var knifeCase = "";
@@ -22870,34 +22837,24 @@ function randSkin() {
 			} else {
 				knifeCase = "regular";
 			}
-
 			skinsArray = Object.keys(knives[knifeCase]);
-
 			randSkin = skinsArray[Math.floor(skinsArray.length * Math.random())];
-
 			identifier = knives[knifeCase][randSkin];
-
 			//console.log(identifier.name);
 			//console.log(identifier.price);
 			//console.log(identifier.img);
 			var toEncode = "knives['" + knifeCase + "']" + "['" + randSkin + "']";
 			inventory["item" + itemCounter] = window.btoa(toEncode);
-
 			drawItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
-
 			if (popup) {
 				caseModalDraw(identifier.name, identifier.img);
 				$('.modalWindow').toggle();
 			}
-
 		} else {
 			//console.log(r);
 			skinsArray = Object.keys(cases[currentCase][r]);
-
 			randSkin = skinsArray[Math.floor(skinsArray.length * Math.random())];
-
 			identifier = cases[currentCase][r][randSkin];
-
 			//console.log(identifier.name);
 			//console.log(identifier.price);
 			//console.log(identifier.img);
@@ -22905,25 +22862,17 @@ function randSkin() {
 			//console.log(toEncode);
 			inventory["item" + itemCounter] = window.btoa(toEncode);
 			//console.log(cases[currentCase][r][randSkin]);
-
 			drawItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
-
 			if (popup) {
 				caseModalDraw(identifier.name, identifier.img);
 				$('.modalWindow').toggle();
 			}
-
-
 		}
-
 		inventoryCurrent += 1;
 		itemCounter += 1;
 	}
-
 	skinChoose(rarity);
-
 }
-
 function itemDisp(name, price, img) {
 	var temp = [];
 
@@ -22931,7 +22880,6 @@ function itemDisp(name, price, img) {
 	//console.log(temp);
 	return temp;
 }
-
 function drawItem(array, rarity) {
 	var name = array[0];
 	var price = "$" + array[1].toFixed(2);
@@ -22939,12 +22887,10 @@ function drawItem(array, rarity) {
 
 	$(".inventoryItemContainer").append('<div class="inventoryItem ' + rarity + '" id="' + 'item' + itemCounter + '" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
 }
-
 function inventoryClear() {
 	inventory = {};
 	$('.inventoryItemContainer').html("");
 }
-
 function drawInventory() {
 	// I know this is cancer dont hate please
 	var keys = Object.keys(inventory);
@@ -22962,12 +22908,7 @@ function drawInventory() {
 		$(".inventoryItemContainer").append('<div class="inventoryItem ' + rarity + '" id="' + keys[i] + '" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
 	}
 }
-
-
-
-
 /*===============CLICKS===============*/
-
 $(".inventoryItemContainer").on("click", ".inventoryItem", function() {
 	if (inventory[this.id]) {
 		$(".tooltipAnchor").hide();
@@ -22986,8 +22927,6 @@ $(".inventoryItemContainer").on("click", ".inventoryItem", function() {
 		skinOverflow();
 	}
 });
-
-
 $("#case").click(function() {
 	if (inventoryCurrent < inventoryMax) {
 		var price = (operationCases[currentCase]["price"] - caseDiscount) + (keyPrice - keyDiscount);
@@ -23004,7 +22943,6 @@ $("#case").click(function() {
 		inventoryValue();
 	}
 });
-
 $(".jackpotDifficulty").click(function() {
 	if (!jackpotInProgress) {
 		$(".jackpotDifficultyContainer div").removeClass("active");
@@ -23016,7 +22954,6 @@ $(".jackpotDifficulty").click(function() {
 		}
 	}
 });
-
 $(".modalMain").on("click", ".modalClose", function() {
 	$('.modalWindow').toggle();
 	if (menusound)
@@ -23024,7 +22961,6 @@ $(".modalMain").on("click", ".modalClose", function() {
 			$('#menu')[0].play();
 		}
 });
-
 $("#acceptButton").click(function() {
 	money += acceptMoneyPerClick;
 	if (acceptedsound)
@@ -23032,7 +22968,6 @@ $("#acceptButton").click(function() {
 			$('#accepted')[0].play();
 		}
 });
-
 $(".about").click(function() {
 	$(".main").toggleClass("small");
 	if (menusound)
@@ -23050,9 +22985,7 @@ if (localStorage.getItem("imgData") === null) {
 }
 $(".profileavatar").html('<img src="' + useravatar + '" width="50" height="50">');
 $(".profile").html("Welcome " + username);
-
 /*===============TABS===============*/
-
 $("#caseTab").click(function() {
 	if ($(".caseContainer").css('display') == 'none') {
 		$(this).toggleClass("active");
@@ -23079,7 +23012,6 @@ $("#caseTab").click(function() {
 		}
 	}
 });
-
 $("#inventoryTab").click(function() {
 	if ($(".inventoryContainer").css('display') == 'none') {
 		$(this).toggleClass("active");
@@ -23106,7 +23038,6 @@ $("#inventoryTab").click(function() {
 		}
 	}
 });
-
 $("#upgradeTab").click(function() {
 	if ($(".upgradeContainer").css('display') == 'none') {
 		$(this).addClass("active");
@@ -23133,7 +23064,6 @@ $("#upgradeTab").click(function() {
 		}
 	}
 });
-
 $("#jackpotTab").click(function() {
 	if (jackpotUnlocked) {
 		if ($(".jackpotRightContainer").css('display') == 'none') {
@@ -23163,7 +23093,6 @@ $("#jackpotTab").click(function() {
 		}
 	}
 });
-
 $("#coinTab").click(function() {
 	if ($(".coinContainer").css('display') == 'none') {
 		$(this).toggleClass("active");
@@ -23190,7 +23119,6 @@ $("#coinTab").click(function() {
 		}
 	}
 });
-
 $("#newsTab").click(function() {
 	if ($(".newsContainer").css('display') == 'none') {
 		$(this).toggleClass("active");
@@ -23217,7 +23145,6 @@ $("#newsTab").click(function() {
 		}
 	}
 });
-
 $('.settings').click(function() {
 	$('.settingsList').toggleClass("hidden");
 	if (menusound)
@@ -23225,7 +23152,6 @@ $('.settings').click(function() {
 			$('#menu')[0].play();
 		}
 });
-
 $('#popupCheckbox').change(function() {
 	if (this.checked) {
 		popup = false;
@@ -23233,7 +23159,6 @@ $('#popupCheckbox').change(function() {
 		popup = true;
 	}
 });
-
 $('#unboxCheckbox').change(function() {
 	if (this.checked) {
 		unboxsound = false;
@@ -23241,7 +23166,6 @@ $('#unboxCheckbox').change(function() {
 		unboxsound = true;
 	}
 });
-
 $('#menuCheckbox').change(function() {
 	if (this.checked) {
 		menusound = false;
@@ -23249,7 +23173,6 @@ $('#menuCheckbox').change(function() {
 		menusound = true;
 	}
 });
-
 $('#acceptedCheckbox').change(function() {
 	if (this.checked) {
 		acceptedsound = false;
@@ -23257,7 +23180,6 @@ $('#acceptedCheckbox').change(function() {
 		acceptedsound = true;
 	}
 });
-
 $('#wonCheckbox').change(function() {
 	if (this.checked) {
 		wonsound = false;
@@ -23273,7 +23195,6 @@ $('#botCheckbox').change(function() {
 		botsound = true;
 	}
 });
-
 $('#lostCheckbox').change(function() {
 	if (this.checked) {
 		lostsound = false;
@@ -23281,25 +23202,20 @@ $('#lostCheckbox').change(function() {
 		lostsound = true;
 	}
 });
-
 $(".clearGameState").click(function() {
 	clearGameState();
 });
-
 /*===============DOM MANIP===============*/
-
 function caseInfo() {
 	$('#caseDisplayImage').attr("src", operationCases[currentCase]["img"] + "/240fx182f");
 	$('#caseName').html(operationCases[currentCase]["name"]);
 	$('#casePrice').html("Case Price: $" + (operationCases[currentCase]["price"] - caseDiscount).toFixed(2) + "  |");
 	$('#keyPrice').html("Key Price: $" + (keyPrice - keyDiscount).toFixed(2));
 }
-
 function update() {
 	$('#money').html("$" + money.toFixed(2));
 	$('#inventorySpace').html(inventoryCurrent + "/" + inventoryMax);
 }
-
 function caseModalDraw(name, img) {
 	$(".modalMain").html("");
 	if ($(".modalMain").hasClass("winner")) {
@@ -23310,7 +23226,6 @@ function caseModalDraw(name, img) {
 	$("#modalImage").attr("src", img + "");
 	$("#modalSkinName").html(name);
 }
-
 function inventoryValue() {
 	var inventoryKeys = Object.keys(inventory);
 	var totalValue = 0;
@@ -23319,14 +23234,12 @@ function inventoryValue() {
 	}
 	$(".inventoryValue").html("Value: $" + totalValue.toFixed(2));
 }
-
 /*===============UPGRADES===============*/
 function upgradeMultiplier(basePrice, amount) {
 	var newPrice = basePrice * Math.pow(2.00, amount + 1).toFixed(2);
 	console.log(newPrice);
 	return newPrice;
 }
-
 $(".stackingUpgradeContainer").on("click", ".upgrade", function() {
 	var name = stackingUpgrades[this.id]["name"];
 	var desc = stackingUpgrades[this.id]["desc"];
@@ -23334,7 +23247,6 @@ $(".stackingUpgradeContainer").on("click", ".upgrade", function() {
 		{
 			$('#menu')[0].play();
 		}
-
 	if (money >= stackingUpgrades[this.id]["price"]) {
 		money -= stackingUpgrades[this.id]["price"];
 		stackingUpgrades[this.id]["price"] = upgradeMultiplier(stackingUpgrades[this.id]["basePrice"], stackingUpgradesPurchased[this.id]);
@@ -23349,8 +23261,6 @@ $(".stackingUpgradeContainer").on("click", ".upgrade", function() {
 	$("#" + this.id).find(".upgradePrice").html("$" + stackingUpgrades[this.id]["price"].toFixed(2));
 	$("#" + this.id).find(".upgradeAmount").html(stackingUpgradesPurchased[this.id]);
 });
-
-
 var stackingUpgrades = {
 	upgrade1: {
 		name: "Inventory Space",
@@ -23387,17 +23297,13 @@ var stackingUpgrades = {
 	}
 	//upgrade4: {name: "Inventory Space II", desc: "Inventory Space: +5", price: 75, cp: 0.00, kp: 0.00, is: 5, img: "https://steamcommunity-a.akamaihd.net/economy/image/U8721VM9p9C2v1o6cKJ4qEnGqnE7IoTQgZI-VTdwyTBeimAcIoxXpgK8bPeslY9pPJIvB5IWW2-452kaM8heLSRgleGAr7BMx-94b6MohOf-Xwsn7-USVDXgHhOG1zPDeLmsxwRtYpItIUb2wskZ6I0FWp9DdsKkOtQslw/100fx100f"}
 };
-
 var stackingUpgradesPurchased = {
 	upgrade1: 0,
 	upgrade2: 0,
 	upgrade3: 0
 };
-
 function drawPermUpgradeContainer() {
-
 }
-
 function drawStackingUpgrades() {
 	for (var upgrade in stackingUpgrades) {
 		if (stackingUpgrades.hasOwnProperty(upgrade)) {
@@ -23414,8 +23320,6 @@ function drawStackingUpgrades() {
 		}
 	}
 }
-
-
 function buyUpgrade(id) {
 	stackingUpgrades[id]["price"] = upgradeMultiplier(stackingUpgrades[id]["basePrice"], stackingUpgradesPurchased[id]);
 	keyDiscount += stackingUpgrades[id]["kp"];
@@ -23424,9 +23328,6 @@ function buyUpgrade(id) {
 	acceptMoneyPerClick += stackingUpgrades[id]["mc"];
 	caseInfo();
 }
-
-
-
 /*===============CASES===============*/
 function drawCases() {
 	for (var crate in operationCases) {
@@ -23435,12 +23336,10 @@ function drawCases() {
 		}
 	}
 }
-
 $(".caseContainer").on('click', '.case', function() {
 	currentCase = this.id;
 	caseInfo();
 });
-
 /*===============JACKPOT===============*/
 var jackpotUnlocked = true;
 var jackpotInProgress = false;
@@ -23449,7 +23348,6 @@ var maxSwapSkins = 15;
 var swapSkinsValue = 0;
 var jackpotSelectedInventory = {};
 var jackpotDifficulty = "low";
-
 $(".jackpotRightPlayer").on("click", ".inventorySwapItem", function() {
 	if (inventoryCurrent <= inventoryMax) {
 		if (Object.keys(jackpotInventory).length < maxSwapSkins && jackpotInProgress == false) {
@@ -23471,7 +23369,6 @@ $(".jackpotRightPlayer").on("click", ".inventorySwapItem", function() {
 		}
 	}
 });
-
 $(".jackpotRightToBet").on("click", ".swappedItem", function() {
 	if (inventoryCurrent <= inventoryMax) {
 		if (jackpotInventory[this.id]) {
@@ -23487,45 +23384,36 @@ $(".jackpotRightToBet").on("click", ".swappedItem", function() {
 		}
 	}
 });
-
 $(".jackpotRightStartButton").click(function() {
 	if (Object.keys(jackpotInventory).length <= maxSwapSkins && swapSkins > 0 && jackpotInProgress == false) {
 		$(".depositorContainer").html("");
 		inventoryCurrent -= Object.keys(jackpotInventory).length;
-
 		jackpotStart();
 		inventoryReDraw();
 	}
 });
-
 function drawJackpotSwapItem(name, price, img, id) {
 	var keys = Object.keys(inventory);
 	var rarity = atob(inventory[id]).replace(/\[[^\[]*$/g, "").match(/\[[^\[]*$/g).toString().match(/\b\w*\b/)[0];
 	if (rarity === "regular" || rarity === "falchionst" || rarity === "butterst" || rarity === "chromast" || rarity === "chroma" || rarity === "huntsman" || rarity === "gamma" || rarity === "huntst" || rarity === "butterfly" || rarity === "bowie" || rarity === "bowiest" || rarity === "shadow" || rarity === "shadowst" || rarity === "falchion") {
 		rarity = "knife";
 	}
-
 	var name = name;
 	var price = "$" + price.toFixed(2);
 	var img = img + "/70fx70f";
-
 	$(".jackpotRightPlayer").append('<div class="inventorySwapItem ' + rarity + '" id="' + id + '" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
 }
-
 function drawSwappedItem(name, price, img, id) {
 	var keys = Object.keys(inventory);
 	var rarity = atob(inventory[id]).replace(/\[[^\[]*$/g, "").match(/\[[^\[]*$/g).toString().match(/\b\w*\b/)[0];
 	if (rarity === "regular" || rarity === "falchionst" || rarity === "bowie" || rarity === "bowiest" || rarity === "butterst" || rarity === "chromast" || rarity === "gamma" || rarity === "chroma" || rarity === "huntsman" || rarity === "huntst" || rarity === "butterfly" || rarity === "shadow" || rarity === "shadowst" || rarity === "falchion") {
 		rarity = "knife";
 	}
-
 	var name = name;
 	var price = "$" + price.toFixed(2);
 	var img = img + "/70fx70f";
-
 	$(".jackpotRightToBet").append('<div class="swappedItem ' + rarity + '" id="' + id + '" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
 }
-
 function drawSwapInventory() {
 	jackpotInventory = {};
 	$(".jackpotRightToBet").html("");
@@ -23535,7 +23423,6 @@ function drawSwapInventory() {
 	updateSwapInfo();
 	// I know this is cancer dont hate please
 	var keys = Object.keys(inventory);
-
 	for (var i = 0; i < keys.length; i++) {
 		var rarity = atob(inventory[keys[i]]).replace(/\[[^\[]*$/g, "").match(/\[[^\[]*$/g).toString().match(/\b\w*\b/)[0];
 		if (rarity === "regular" || rarity === "bowie" || rarity === "bowiest" || rarity === "falchionst" || rarity === "butterst" || rarity === "chromast" || rarity === "chroma" || rarity === "gamma" || rarity === "huntsman" || rarity === "huntst" || rarity === "butterfly" || rarity === "shadow" || rarity === "shadowst" || rarity === "falchion") {
@@ -23549,14 +23436,10 @@ function drawSwapInventory() {
 		$(".jackpotRightPlayer").append('<div class="inventorySwapItem ' + rarity + '" id="' + keys[i] + '" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
 	}
 }
-
 function updateSwapInfo() {
 	$(".jackpotRightValueTotal").html("$" + swapSkinsValue.toFixed(2))
 	$(".jackpotRightSkinsTotal").html(swapSkins + "/" + maxSwapSkins);
 }
-
-
-
 //{name: "", difficulty: 1, profilePic: ""},
 var jackpotAI = {
 	bot1: ["jGal | CSGOClicker.net", 1, "https://i.imgur.com/WTjn0MM.png"],
@@ -23591,14 +23474,11 @@ var jackpotAI = {
 	bot30: ["Toshiyuki", 8, "https://i.imgur.com/rNszEvF.jpg"],
 	bot31: ["King of KFC Jamal", 9, "https://i.imgur.com/XhFlH2S.jpg"]
 };
-
 var jackpotPots = {
 	low: ["bot1", "bot2", "bot3", "bot4", "bot5", "bot6", "bot7", "bot8", "bot9"],
 	medium: ["bot10", "bot11", "bot12", "bot13", "bot14", "bot15", "bot16", "bot17", "bot18", "bot19"],
 	high: ["bot20", "bot21", "bot22", "bot23", "bot24", "bot25", "bot26", "bot27", "bot28", "bot29", "bot30", "bot31"]
 }
-
-
 //different version of difficulty
 var jackpotAiDifficulty1 = {
 	1: {
@@ -23665,8 +23545,6 @@ var jackpotAiDifficulty1 = {
 		covert: 0.050
 	}
 };
-
-
 var jackpotAiDifficulty2 = {
 	1: ["milspec"],
 	2: ["milspec", "restricted"],
@@ -23678,8 +23556,6 @@ var jackpotAiDifficulty2 = {
 	8: ["stattrak", "covert", "knife"],
 	9: ["stattrak", "knife"]
 };
-
-
 function inventoryReDraw() {
 	$(".jackpotRightPlayer").html("");
 	$(".inventoryItemContainer").html("");
@@ -23688,7 +23564,6 @@ function inventoryReDraw() {
 	drawSwapInventory();
 	inventoryValue();
 }
-
 function jackpotStart() {
 	$(".jackpotRightToBet").html("");
 	$(".winnerIs").html("");
@@ -23737,7 +23612,6 @@ function jackpotStart() {
 	var jackpotTimerCounter = 60;
 	var depositTicker = 0;
 	var AIKeys = JSON.parse(JSON.stringify(jackpotPots[jackpotDifficulty]));
-
 	for (var skin in jackpotInventory) {
 		if (jackpotInventory.hasOwnProperty(skin)) {
 			if (inventory.hasOwnProperty(skin)) {
@@ -23754,14 +23628,11 @@ function jackpotStart() {
 		}
 	}
 	jackpotInventory = {};
-
 	totalTickets += playerTickets;
-
 	function drawPlayerDepositor(playerName, playerValue, playerImg) {
 		$(".depositorContainer").append('<div class="jackpotDepositor" id="playerDepositor"> <div class="depositorInfo"><img src="' + playerImg + '" class="depositorProPic"> <div class="depositorName">' + playerName + '</div> <div class="depositorValue" id="depositValue">$' + playerValue + '</div> <div class="depositorSkinContainer" id="playerDeposit"> </div> </div> </div>');
 		$("#playerDepositor").hide().fadeIn();
 		var keys = Object.keys(pot);
-
 		for (var i = 0; i < keys.length; i++) {
 			var rarity = atob(pot[keys[i]]).replace(/\[[^\[]*$/g, "").match(/\[[^\[]*$/g).toString().match(/\b\w*\b/)[0];
 			if (rarity === "regular" || rarity === "bowie" || rarity === "bowiest" || rarity === "falchionst" || rarity === "butterst" || rarity === "chromast" || rarity === "chroma" || rarity === "gamma" || rarity === "huntsman" || rarity === "huntst" || rarity === "butterfly" || rarity === "shadow" || rarity === "shadowst" || rarity === "falchion") {
@@ -23774,13 +23645,11 @@ function jackpotStart() {
 
 			$("#playerDeposit").append('<div class="depositorSkin ' + rarity + '" id="' + keys[i] + '" title="' + name + '"><div class="itemPrice">$' + price + '</div> <img src=' + img + '> </div>');
 		}
-
 	}
 	$(".jackpotCountDown").html(jackpotTimerCounter);
 	drawPlayerDepositor(username, (playerTickets / 100).toFixed(2), useravatar);
 	$(".jackpotCurrentWorth").html("Pot: $" + (totalTickets / 100).toFixed(2));
 	$(".jackpotPercentOfTickets").html("Your odds to win: " + (playerTickets / totalTickets * 100).toFixed(2) + "%");
-
 	var jackpotTimer = setInterval(function() {
 		if (jackpotTimerCounter > 0) {
 			if (skins < maxSkins) {
@@ -23800,7 +23669,6 @@ function jackpotStart() {
 		$(".jackpotPercentOfTickets").html("Your odds to win: " + (playerTickets / totalTickets * 100).toFixed(2) + "%");
 		$(".jackpotCountDown").html(jackpotTimerCounter);
 	}, 1000);
-
 	function jackpotAISkinDraw() {
 		if (Math.random() > 0.85) {
 			if (AIKeys.length > 0) {
@@ -23814,7 +23682,6 @@ function jackpotStart() {
 				console.log("empty!");
 			}
 		}
-
 		function jackpotRandSkin() {
 			var jackpotCase = "";
 			var skinsArray = [];
@@ -23822,38 +23689,25 @@ function jackpotStart() {
 			var randNum = Math.random().toFixed(3); //rounded to 3 places to make it slightly easier to get certain rarities
 			var numSkins = Math.ceil(Math.random() * 6);
 			var identifier;
-
 			//console.log(AIKeys);
-
 			var randomBot = AIKeys[Math.floor(AIKeys.length * Math.random())];
-
 			//console.log(randomBot);
-
 			var botName = jackpotAI[randomBot][0];
 			var botDiff = jackpotAI[randomBot][1];
 			var botImg = jackpotAI[randomBot][2];
-
-
 			players.push(randomBot);
 			//console.log(botName);
 			//console.log(jackpotAiDifficulty2[botDiff]);
-
 			//sticks with same bot for the duration of # of skins they have, new rarity for each skin
-
-
 			function skinChoose() {
 				jackpotCase = Object.keys(cases)[Math.floor(Object.keys(cases).length * Math.random())];
-
 				var rarity = jackpotAiDifficulty2[botDiff][Math.floor(jackpotAiDifficulty2[botDiff].length * Math.random())];
-
 				if (rarity === "knife") {
 					//var knifeCase = Object.keys(knives)[Math.floor(Math.random() * Object.keys(knives).length)];
 					var knifeCase = Object.keys(knives)[Math.floor(Object.keys(knives).length * Math.random())];
-
 					skinsArray = Object.keys(knives[knifeCase]);
 					randSkin = skinsArray[Math.floor(skinsArray.length * Math.random())];
 					identifier = knives[knifeCase][randSkin];
-
 					//console.log(identifier.name);
 					//console.log(identifier.price * 100);
 					botTickets[randomBot] += Math.round(identifier.price * 100);
@@ -23861,38 +23715,30 @@ function jackpotStart() {
 					var toEncode = "knives['" + knifeCase + "']" + "['" + randSkin + "']";
 					//console.log(toEncode);
 					pot["item" + itemCounter] = window.btoa(toEncode);
-
 					//drawItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
 					drawBotItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
 				} else {
-
-					skinsArray = Object.keys(cases[jackpotCase][rarity]);
+        				skinsArray = Object.keys(cases[jackpotCase][rarity]);
 					randSkin = skinsArray[Math.floor(skinsArray.length * Math.random())];
 					identifier = cases[jackpotCase][rarity][randSkin];
-
 					botTickets[randomBot] += Math.round(identifier.price * 100);
 					totalTickets += Math.round(identifier.price * 100);
-
 					var toEncode = "cases['" + jackpotCase + "']" + "['" + rarity + "']" + "['" + randSkin + "']";
 					//console.log(toEncode);
 					pot["item" + itemCounter] = window.btoa(toEncode);
 					//console.log(cases[currentCase][rarity][randSkin]);
-
 					drawBotItem(itemDisp(identifier.name, identifier.price, identifier.img), rarity);
-
 				}
 				skins += 1;
 				jackpotItemCounter += 1;
 				itemCounter += 1;
 			}
-
 			function drawBotItem(array, rarity) {
 				var name = array[0];
 				var price = "$" + array[1].toFixed(2);
 				var img = array[2] + "/70fx70f";
 				var rarity = rarity;
 				var botSelector = "deposit" + depositTicker;
-
 				$('#' + botSelector).append('<div class="depositorSkin ' + rarity + '" title="' + name + '"><div class="itemPrice">' + price + '</div> <img src=' + img + '> </div>');
 				if (botsound)
 				{
@@ -23900,9 +23746,7 @@ function jackpotStart() {
 				}
 				//console.log(randomBot);
 			}
-
 			var depositValueVar = "depositValue" + depositTicker;
-
 			function drawDepositor(botName, botDrawPrice, botImg) {
 				var depositorProPic = botImg;
 				var depositorName = botName;
@@ -23915,8 +23759,6 @@ function jackpotStart() {
 			for (var i = 0; i < numSkins; i++) {
 				skinChoose();
 			}
-
-
 			var botDrawPrice = botTickets[randomBot] / 100;
 			//console.log(depositValueVar);
 			$("#" + depositValueVar).html("$" + botDrawPrice.toFixed(2));
@@ -23924,16 +23766,13 @@ function jackpotStart() {
 
 			AIKeys.splice(AIKeys.indexOf(randomBot), 1);
 		}
-
 	}
-
 	function jackpotPickWinner() {
 		var ticketAdder = 0;
 		var randTicket = Math.round(Math.random() * totalTickets);
 		console.log("Random Ticket: " + randTicket);
 		console.log("Player Tickets: " + playerTickets);
 		console.log("Total Tickets: " + totalTickets);
-
 		if (randTicket <= playerTickets && randTicket > 0) {
 			$(".winneravatar").html('<img src="' + useravatar + '" width="70" height="70">');
 			$(".winnerIs").html(username +" has won $" + (totalTickets / 100).toFixed(2) + " with " + (playerTickets / totalTickets * 100).toFixed(2) + "%" );
@@ -23980,9 +23819,7 @@ function jackpotStart() {
 		jackpotInProgress = false;
 		saveGameState();
 	}
-
 	var winnerModal = true;
-
 	function winnerModalDraw() {
 		//<img src="" id="modalImage"/> <div class="modalSkinName" id="modalSkinName"></div> <div class="unboxButton button" id="unboxButton">Continue</div>
 		//<div class="winnerModalHeader">Congratulations</div> <div class="winnerModalMessage">You won <span class="winnerAmount">$586.14</span> worth of skins.</div> <div class="winnerModalWarnMessage"><i class="fa fa-exclamation-triangle"></i> You are over your max inventory space. Upgrade inventory space or sell some items to bet and unbox again.</div> <div class="winnerModalSkinContainer"> </div>
@@ -24015,17 +23852,13 @@ function jackpotStart() {
 		$('.modalWindow').toggle();
 	}
 }
-
 /*===============VISUAL===============*/
-
 function backgroundCheck() {
 	$('.display').width($(window).width() - 575);
 }
-
 $(window).on('resize', function() {
 	backgroundCheck();
 });
-
 function skinOverflow() {
 	if (inventoryCurrent > inventoryMax) {
 		$('.mainInfoLabelWarning').css('display', 'inline-block');
@@ -24047,7 +23880,6 @@ $(".inventoryContainer").on({mouseenter: function() {
     $(".tooltipAnchor").css({top: event.clientY - 125, left: event.clientX - 100});
 });
 */
-
 $(".tt").on({
 	mouseenter: function() {
 		$(".tooltipAnchor").html($(this).attr("data-tt"));
@@ -24064,24 +23896,19 @@ $(".tt").on({
 		$(".tooltipAnchor").html("");
 	}
 });
-
 /*===============TICKERS===============*/
-
 setInterval(function() {
 	update();
 }, 1000 / fps);
-
 setTimeout(function() {
 	$("#notif").toggleClass("hidden");
 	setTimeout(function() {
 		$("#notif").toggleClass("hidden");
 	}, 5000);
 }, 1500);
-
 setInterval(function() {
 	saveGameState();
 }, 3000);
-
 /*===============SAVEGAME===============*/
 function saveGameState() {
 	var string = {
@@ -24102,7 +23929,6 @@ function saveGameState() {
 	localStorage.setItem("savegame", JSON.stringify(string));
 	console.log("Game Saved.");
 }
-
 function loadGameState() {
 	if (localStorage.getItem("savegame") !== null) {
 		inventoryClear();
@@ -24130,7 +23956,6 @@ function loadGameState() {
 	}
 
 }
-
 function clearGameState() {
 	var clearsave = prompt("Are you sure you want to clear current save? (y/n)")
 	if (clearsave === "n")
@@ -24151,20 +23976,16 @@ function clearGameState() {
 		var wronginput = alert("Please put in the correct input.");
 	}
 }
-
 /*===============CANVAS===============*/
-
 var audio = document.getElementById('startgame');
 var audio = document.getElementById('botentered');
 var audio = document.getElementById('youwon');
 var audio = document.getElementById('accepted');
 var audio = document.getElementById('menu');
 var audio = document.getElementById('unbox');
-
 audio.addEventListener('volume', function() {
 	console.log('changed.', arguments);
 }, true);
-
 $(document).on('click','#btnFlip',function() {
 	var gameWelcome = alert("Welcome to the coin toss game!");
 	var x = prompt("Enter a Value", "0")
@@ -24199,18 +24020,15 @@ $(document).on('click','#btnFlip',function() {
 		}
 	}
 });
-
 // Get all variables
 var bannerImage = document.getElementById('bannerImg');
 var result = document.getElementById('res');
 var img = document.getElementById('tableBanner');
-
 // 
 bannerImage.addEventListener('change', function() {
     var file = this.files[0];
     // declare a maxSize (3Mb)
     var maxSize = 3000000;
-
     if (file.type.indexOf('image') < 0) {
         res.innerHTML = 'invalid type';
         return;
@@ -24244,32 +24062,26 @@ bannerImage.addEventListener('change', function() {
 				}
 			}
         img.src = fReader.result;
-    };
-    
+    };   
     fReader.readAsDataURL(file);
 });
-
 function getBase64Image(img, sizeRatio, type, quality) {
 	// if we've got an svg, don't convert it, svg will certainly be less big than any pixel image
 	if(type.indexOf('svg+xml')>0) return img.src;
-
 	// if we've got a jpeg
 	if(type.match(/jpe?g/)){
 		var maxheight = 70;
   var maxwidth = 70;
-
 	if(img.width > maxwidth && img.height > maxheight)
   {
     var canvas = document.createElement("canvas");
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
-    var dataURL = canvas.toDataURL(type, quality);
-    
+    var dataURL = canvas.toDataURL(type, quality);   
     return dataURL;
    }
    else if(img.width > maxwidth && img.height == maxheight)
@@ -24278,12 +24090,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = img.height;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
-    var dataURL = canvas.toDataURL(type, quality);
-    
+    var dataURL = canvas.toDataURL(type, quality);    
     return dataURL;
    }
    else if(img.width == maxwidth && img.height > maxheight)
@@ -24292,12 +24102,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = img.width;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
-    var dataURL = canvas.toDataURL(type, quality);
-    
+    var dataURL = canvas.toDataURL(type, quality);    
     return dataURL;
    }
   else if(img.width < maxwidth && img.height < maxheight)
@@ -24306,12 +24114,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
-    var dataURL = canvas.toDataURL(type, quality);
-    
+    var dataURL = canvas.toDataURL(type, quality);    
     return dataURL;
    }
  else if(img.width < maxwidth && img.height == maxheight)
@@ -24320,12 +24126,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = img.height;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
   else if(img.width == maxwidth && img.height < maxheight)
@@ -24334,12 +24138,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = img.width;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
    else
@@ -24348,33 +24150,27 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = img.width;
     canvas.height = img.height;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
 		}
 	// if we've got some other image type
 	else type = 'image/png';
-	
   var maxheight = 70;
   var maxwidth = 70;
-
 	if(img.width > maxwidth && img.height > maxheight)
   {
     var canvas = document.createElement("canvas");
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
    else if(img.width > maxwidth && img.height == maxheight)
@@ -24383,12 +24179,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = img.height;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
    else if(img.width == maxwidth && img.height > maxheight)
@@ -24397,12 +24191,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = img.width;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
   else if(img.width < maxwidth && img.height < maxheight)
@@ -24411,12 +24203,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
  else if(img.width < maxwidth && img.height == maxheight)
@@ -24425,12 +24215,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = maxwidth;
     canvas.height = img.height;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
     var dataURL = canvas.toDataURL(type, quality);
-    
     return dataURL;
    }
   else if(img.width == maxwidth && img.height < maxheight)
@@ -24439,12 +24227,10 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = img.width;
     canvas.height = maxheight;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
-    var dataURL = canvas.toDataURL(type, quality);
-    
+    var dataURL = canvas.toDataURL(type, quality);   
     return dataURL;
    }
    else
@@ -24453,24 +24239,19 @@ function getBase64Image(img, sizeRatio, type, quality) {
 	// if our image file is too large, then reduce its size
     canvas.width = img.width;
     canvas.height = img.height;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     // if we already tried to reduce its size but it's still failing, then reduce the jpeg quality
-    var dataURL = canvas.toDataURL(type, quality);
-    
+    var dataURL = canvas.toDataURL(type, quality);   
     return dataURL;
    }
 }
-
 function fetchimage () {
     var dataImage = localStorage.getItem('imgData');
     img.src = dataImage;
 }
-
 // Call fetch to get image from localStorage.
 fetchimage();
-
 $('#save').on('click', function(){
 
     $('input[type="text"]').each(function(){    
@@ -24483,7 +24264,6 @@ $('#save').on('click', function(){
 
 /*==============================================================================
 Canvas
-
 ==============================================================================*/
 /*
 // "+1" popups
@@ -24495,8 +24275,6 @@ var tt = [];
 function makeToolTip(element, ) {
 }
 */
-
-
 /*
 $("#case").click(function() {
   var randX = Math.floor(Math.random() * 240);
@@ -24518,8 +24296,6 @@ $("#case").click(function() {
   }, 50);
 });
 */
-
-
 /*
 var fps = 1000 / 60;
 var degrees = 0;
@@ -24557,19 +24333,16 @@ drawOrder();
 /*function openCity(evt, cityName) {
     // Declare all variables
     var i, tabcontent, tablinks;
-
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-
     // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
