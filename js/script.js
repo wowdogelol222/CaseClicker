@@ -1,6 +1,6 @@
 // CSGOClicker - Case CSGOClicker
 //money, inventory, jackpot
-(function(){
+(function){
 var itemCounter = 0;
 var fps = 15;
 var money = 1.000.000;
